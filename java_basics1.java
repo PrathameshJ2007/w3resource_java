@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class java_basics1 {
-    public static void sumdjt (){
+    public static void Prob32_sumdjt (){
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         int sum = 0 ;
@@ -13,12 +13,12 @@ public class java_basics1 {
          
     }
 
-    public static void hexArea(){
+    public static void Prob33_hexArea(){
         Scanner sc = new Scanner(System.in);
         double Slen = sc.nextDouble(); 
         System.out.println("Area of Hexagon : " + (6 * Math.pow(Slen,2))/(4 * Math.tan((Math.PI/6))));
     }
-    public static void polArea(){
+    public static void Prob34_Area(){
         Scanner sc = new Scanner(System.in);
         double sides = sc.nextDouble();
         double Slen = sc.nextDouble(); 
@@ -28,9 +28,9 @@ public class java_basics1 {
 
 
     public static void main(String arg[]){
-    //sumdjt();
-    //hexArea();
-    polArea();
+    //Prob32_sumdjt();
+    //Prob33_hexArea();
+    //Prob34_polArea();
     }
 }
 
