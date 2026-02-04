@@ -431,7 +431,7 @@ public class java_basics1 {
         //Prob35_Area()
         //Prob36_Dist_bw_two();
         //Prob37_reverse_array();
-        //pob38_Count_Characters_in_String();
+        //prob38_Count_Characters_in_String();
         //Prob39_Unique_Three_Digit_Numbers();
         //Prob40_list_char_array();
         //Prob41_ASCII_Value_Finder();
