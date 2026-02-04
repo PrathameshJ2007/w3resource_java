@@ -253,6 +253,16 @@ public class java_basics1 {
         System.out.println("Area of Hexagon : " + (sides * Math.pow(Slen,2))/(4 * Math.tan((Math.PI/sides))));
         sc.close();
     }
+    public static void Prob36_Dist_bw_two(){
+        Scanner sc = new Scanner(System.in);
+        double lat1 = sc.nextDouble();
+        double lat2 = sc.nextDouble();
+        double lon1 = sc.nextDouble();
+        double lon2 = sc.nextDouble();
+        double distance =  6371.01 * Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
+        System.out.println("The distance between the two points is : " + distance + " km");
+        sc.close();
+    }
 
 
 
@@ -292,5 +302,6 @@ public class java_basics1 {
         //Prob33_sumdjt()
         //Prob34_hexArea()
         //Prob35_Area()
+        Prob36_Dist_bw_two();
     }
 }
