@@ -278,6 +278,9 @@ public class java_basics1 {
             System.out.print(sentenceC[i]+",");
         }        
     }
+    public static void Prob38_Count_Characters_in_String(){
+        
+    }
 
 
 
@@ -319,5 +322,6 @@ public class java_basics1 {
         //Prob35_Area()
         //Prob36_Dist_bw_two();
         Prob37_reverse_array();
+        //Prob38_Count_Characters_in_String();
     }
 }
