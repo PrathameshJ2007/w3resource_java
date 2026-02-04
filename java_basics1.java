@@ -1,5 +1,6 @@
 import java.util.*;
 import java.nio.charset.Charset;//Prob 40
+import java.io.Console; //Prob 42
 
 public class java_basics1 {
 
@@ -352,6 +353,33 @@ public class java_basics1 {
         int chr = 'Z';
         System.out.println("The ASCII value of Z is: " + chr);
     }
+    public static void Prob42_Input_and_Display_password(){
+        // Declare a Console variable 'cons'.
+        Console cons;
+
+        // Check if the system console is available.
+        if ((cons = System.console()) != null) {
+            // Declare a character array 'pass_ward' to store the password.
+            char[] pass_ward = null;
+
+            try {
+                // Prompt the user to input their password.
+                pass_ward = cons.readPassword("Input your Password:");
+
+                // Display the password to the console.
+                System.out.println("Your password was: " + new String(pass_ward));
+            } finally {
+                // Ensure that the password array is securely cleared.
+                if (pass_ward != null) {
+                    java.util.Arrays.fill(pass_ward, ' ');
+                }
+            }
+        } else {
+            // If the system console is not available, throw a runtime exception.
+            throw new RuntimeException("Can't get the password... No console");
+        }
+    }
+
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -395,5 +423,6 @@ public class java_basics1 {
         //Prob39_Unique_Three_Digit_Numbers();
         //Prob40_list_char_array();
         //Prob41_ASCII_Value_Finder();
+        Prob42_Input_and_Display_password();
     }
 }
