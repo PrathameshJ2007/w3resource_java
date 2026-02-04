@@ -265,8 +265,7 @@ public class java_basics1 {
     }
     public static void Prob37_reverse_array(){
         Scanner sc = new Scanner(System.in);
-        String sentence = sc.nextLine();
-        char sentenceC = sentence.tochar();   
+        char[] sentenceC = scanner.nextLine().toCharArray();   
         int start = 0 , end = sentenceC.length - 1;
         while(start<end){
             sentenceC[start] = sentenceC[start] - sentenceC[end]; // a = a - b
@@ -319,6 +318,6 @@ public class java_basics1 {
         //Prob34_hexArea()
         //Prob35_Area()
         //Prob36_Dist_bw_two();
-        //Peob37_reverse_array();
+        Prob37_reverse_array();
     }
 }
