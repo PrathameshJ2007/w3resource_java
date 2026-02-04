@@ -379,6 +379,9 @@ public class java_basics1 {
             throw new RuntimeException("Can't get the password... No console");
         }
     }
+    public static void Prob43_Twinkle_Poem_Formatter(){
+        System.out.println("\nTwinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp above the world so high, \n\t\tLike a diamond in the sky. \nTwinkle, twinkle, little star, \n\tHow I wonder what you are!\n\n");
+    }
 
 
     public static void main(String arg[]){
@@ -423,6 +426,7 @@ public class java_basics1 {
         //Prob39_Unique_Three_Digit_Numbers();
         //Prob40_list_char_array();
         //Prob41_ASCII_Value_Finder();
-        Prob42_Input_and_Display_password();
+        //Prob42_Input_and_Display_password();
+        Prob43_Twinkle_Poem_Formatter();
     }
 }
