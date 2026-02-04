@@ -275,12 +275,45 @@ public class java_basics1 {
             end -- ;
         }
         for (int i = 0 ; i<= sentenceC.length - 1 ; i++){
-            System.out.print(sentenceC[i]+",");
+            System.out.print(sentenceC[i]);
         }        
     }
     public static void Prob38_Count_Characters_in_String(){
+        Scanner sc = new Scanner(System.in);
+        String sentence = sc.nextLine();
+        char[] sentenceC = sentence.toCharArray();   
+        int start = 0 , end = sentenceC.length - 1;
         
+        int letters = 0;
+        int spaces = 0;
+        int numbers = 0;
+        int others = 0;
+        for (int i = start ; i<=end ; i++){
+            int ascii = (int) sentenceC[i];
+            if ((ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122)) {
+                letters++;
+            }
+            else if (ascii == 32) {
+                spaces++;
+            }
+            else if (ascii >= 48 && ascii <= 57) {
+                numbers++;
+            }
+            else {
+                others++;
+            }
+        }
+        System.out.println("string :  " + sentence);
+        System.out.println("letter: " + letters);
+        System.out.println("space: " + spaces);
+        System.out.println("number: " + numbers);
+        System.out.println("other: " + others);
     }
+    public static void Prob_39_Unique_Three_Digit_Numbers(){
+
+    }
+
+
 
 
 
@@ -321,7 +354,8 @@ public class java_basics1 {
         //Prob34_hexArea()
         //Prob35_Area()
         //Prob36_Dist_bw_two();
-        Prob37_reverse_array();
-        //Prob38_Count_Characters_in_String();
+        //Prob37_reverse_array();
+        Prob38_Count_Characters_in_String();
+        //Prob_39_Unique_Three_Digit_Numbers();
     }
 }
