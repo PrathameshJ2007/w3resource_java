@@ -310,7 +310,7 @@ public class java_basics1 {
         System.out.println("other: " + others);
     }
     public static void Prob_39_Unique_Three_Digit_Numbers(){
-
+        
     }
 
 
