@@ -265,12 +265,12 @@ public class java_basics1 {
     }
     public static void Prob37_reverse_array(){
         Scanner sc = new Scanner(System.in);
-        char[] sentenceC = scanner.nextLine().toCharArray();   
+        char[] sentenceC = sc.nextLine().toCharArray();   
         int start = 0 , end = sentenceC.length - 1;
         while(start<end){
-            sentenceC[start] = sentenceC[start] - sentenceC[end]; // a = a - b
-            sentenceC[end] = sentenceC[start] + sentenceC[end]; // b = a + b
-            sentenceC[start] = sentenceC[end] - sentenceC[start]; // a = b - a
+            char temp = sentenceC[start];
+            sentenceC[start] = sentenceC[end] ;
+            sentenceC[end] = temp ;
             start ++ ;
             end -- ;
         }
