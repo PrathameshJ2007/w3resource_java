@@ -320,6 +320,7 @@ public class java_basics1 {
         System.out.println("space: " + spaces);
         System.out.println("number: " + numbers);
         System.out.println("other: " + others);
+        sc.close();
     }
     public static void Prob39_Unique_Three_Digit_Numbers(){
         int amount = 0; // Initialize a counter for three-digit numbers
@@ -382,6 +383,14 @@ public class java_basics1 {
     public static void Prob43_Twinkle_Poem_Formatter(){
         System.out.println("\nTwinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp above the world so high, \n\t\tLike a diamond in the sky. \nTwinkle, twinkle, little star, \n\tHow I wonder what you are!\n\n");
     }
+    public static void Prob44_Compute_n_nn_nnn(){
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        int sum1 = num1 + ((num1*10)+num1) + ((num1*100)+(num1*10)+(num1));
+        System.out.println(num1 + " + " + ((num1*10)+num1) + " + " + ((num1*100)+(num1*10)+(num1)));
+        System.out.println("sum = "+sum1);
+        sc.close();
+    }
 
 
     public static void main(String arg[]){
@@ -427,6 +436,7 @@ public class java_basics1 {
         //Prob40_list_char_array();
         //Prob41_ASCII_Value_Finder();
         //Prob42_Input_and_Display_password();
-        Prob43_Twinkle_Poem_Formatter();
+        //Prob43_Twinkle_Poem_Formatter();
+        //Prob44_Compute_n_nn_nnn();
     }
 }
