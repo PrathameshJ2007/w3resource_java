@@ -1,4 +1,5 @@
 import java.util.*;
+import java.nio.charset.Charset;//Prob 40
 
 public class java_basics1 {
 
@@ -303,19 +304,54 @@ public class java_basics1 {
                 others++;
             }
         }
+        // Their method 
+        // if (Character.isLetter(ch[i])) {
+        //     letter++;
+        // }
+        // else if (Character.isDigit(ch[i])) {
+        //     num++;
+        // }
+        // else if (Character.isSpaceChar(ch[i])) {
+        //     space++;
+        // } else { other++; }
         System.out.println("string :  " + sentence);
         System.out.println("letter: " + letters);
         System.out.println("space: " + spaces);
         System.out.println("number: " + numbers);
         System.out.println("other: " + others);
     }
-    public static void Prob_39_Unique_Three_Digit_Numbers(){
+    public static void Prob39_Unique_Three_Digit_Numbers(){
+        int amount = 0; // Initialize a counter for three-digit numbers
         
+        // Iterate through three nested loops to generate all unique three-digit numbers
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 4; j++) {
+                for (int k = 1; k <= 4; k++) {
+                    // Check if 'i,' 'j,' and 'k' are all different (not equal)
+                    if (k != i && k != j && i != j) {
+                        amount++; // Increment the counter
+                        System.out.println(i + "" + j + "" + k); // Print the generated three-digit number
+                    }
+                }
+            }
+        }
+        
+        // Display the total number of generated three-digit numbers
+        System.out.println("Total number of the three-digit-number is " + amount);
     }
+    public static void Prob40_list_char_array(){
+        System.out.println("List of available character sets: ");
+        
+        // Iterate through the available character sets and print their names
+        for (String str : Charset.availableCharsets().keySet()) {
+            System.out.println(str);
+        }
 
-
-
-
+    }
+    public static void Prob41_ASCII_Value_Finder(){
+        int chr = 'Z';
+        System.out.println("The ASCII value of Z is: " + chr);
+    }
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -355,7 +391,9 @@ public class java_basics1 {
         //Prob35_Area()
         //Prob36_Dist_bw_two();
         //Prob37_reverse_array();
-        Prob38_Count_Characters_in_String();
-        //Prob_39_Unique_Three_Digit_Numbers();
+        //pob38_Count_Characters_in_String();
+        //Prob39_Unique_Three_Digit_Numbers();
+        //Prob40_list_char_array();
+        //Prob41_ASCII_Value_Finder();
     }
 }
