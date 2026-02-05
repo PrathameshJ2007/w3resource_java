@@ -1,4 +1,6 @@
 import java.util.*;
+import java.nio.charset.Charset;//Prob 40
+import java.io.Console; //Prob 42
 
 public class java_basics1 {
 
@@ -263,22 +265,132 @@ public class java_basics1 {
         System.out.println("The distance between the two points is : " + distance + " km");
         sc.close();
     }
-    public static void Prob37_reverse_array(){
+    public static void Peob37_reverse_array(){
         int numbers[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100};
-   
+        reverse_array(marks);    
         int start = 0 , end = numbers.length - 1;
         while(start<end){
-            numbers[start] = numbers[start] - numbers[end]; // a = a - b
-            numbers[end] = numbers[start] + numbers[end]; // b = a + b
-            numbers[start] = numbers[end] - numbers[start]; // a = b - a
+            char temp = sentenceC[start];
+            sentenceC[start] = sentenceC[end] ;
+            sentenceC[end] = temp ;
             start ++ ;
             end -- ;
         }
-        for (int i = 0 ; i<= numbers.length - 1 ; i++){
-            System.out.print(numbers[i]+",");
+        for (int i = 0 ; i<= sentenceC.length - 1 ; i++){
+            System.out.print(sentenceC[i]);
         }        
     }
+    public static void Prob38_Count_Characters_in_String(){
+        Scanner sc = new Scanner(System.in);
+        String sentence = sc.nextLine();
+        char[] sentenceC = sentence.toCharArray();   
+        int start = 0 , end = sentenceC.length - 1;
+        
+        int letters = 0;
+        int spaces = 0;
+        int numbers = 0;
+        int others = 0;
+        for (int i = start ; i<=end ; i++){
+            int ascii = (int) sentenceC[i];
+            if ((ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122)) {
+                letters++;
+            }
+            else if (ascii == 32) {
+                spaces++;
+            }
+            else if (ascii >= 48 && ascii <= 57) {
+                numbers++;
+            }
+            else {
+                others++;
+            }
+        }
+        // Their method 
+        // if (Character.isLetter(ch[i])) {
+        //     letter++;
+        // }
+        // else if (Character.isDigit(ch[i])) {
+        //     num++;
+        // }
+        // else if (Character.isSpaceChar(ch[i])) {
+        //     space++;
+        // } else { other++; }
+        System.out.println("string :  " + sentence);
+        System.out.println("letter: " + letters);
+        System.out.println("space: " + spaces);
+        System.out.println("number: " + numbers);
+        System.out.println("other: " + others);
+        sc.close();
+    }
+    public static void Prob39_Unique_Three_Digit_Numbers(){
+        int amount = 0; // Initialize a counter for three-digit numbers
+        
+        // Iterate through three nested loops to generate all unique three-digit numbers
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 4; j++) {
+                for (int k = 1; k <= 4; k++) {
+                    // Check if 'i,' 'j,' and 'k' are all different (not equal)
+                    if (k != i && k != j && i != j) {
+                        amount++; // Increment the counter
+                        System.out.println(i + "" + j + "" + k); // Print the generated three-digit number
+                    }
+                }
+            }
+        }
+        
+        // Display the total number of generated three-digit numbers
+        System.out.println("Total number of the three-digit-number is " + amount);
+    }
+    public static void Prob40_list_char_array(){
+        System.out.println("List of available character sets: ");
+        
+        // Iterate through the available character sets and print their names
+        for (String str : Charset.availableCharsets().keySet()) {
+            System.out.println(str);
+        }
 
+    }
+    public static void Prob41_ASCII_Value_Finder(){
+        int chr = 'Z';
+        System.out.println("The ASCII value of Z is: " + chr);
+    }
+    public static void Prob42_Input_and_Display_password(){
+        // Declare a Console variable 'cons'.
+        Console cons;
+
+        // Check if the system console is available.
+        if ((cons = System.console()) != null) {
+            // Declare a character array 'pass_ward' to store the password.
+            char[] pass_ward = null;
+
+            try {
+                // Prompt the user to input their password.
+                pass_ward = cons.readPassword("Input your Password:");
+
+                // Display the password to the console.
+                System.out.println("Your password was: " + new String(pass_ward));
+            } finally {
+                // Ensure that the password array is securely cleared.
+                if (pass_ward != null) {
+                    java.util.Arrays.fill(pass_ward, ' ');
+                }
+            }
+        } else {
+            // If the system console is not available, throw a runtime exception.
+            throw new RuntimeException("Can't get the password... No console");
+        }
+    }
+    public static void Prob43_Twinkle_Poem_Formatter(){
+        System.out.println("\nTwinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp above the world so high, \n\t\tLike a diamond in the sky. \nTwinkle, twinkle, little star, \n\tHow I wonder what you are!\n\n");
+    }
+    public static void Prob44_Compute_n_nn_nnn(){
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        int sum1 = num1 + ((num1*10)+num1) + ((num1*100)+(num1*10)+(num1));
+        System.out.println(num1 + " + " + ((num1*10)+num1) + " + " + ((num1*100)+(num1*10)+(num1)));
+        System.out.println("sum = "+sum1);
+        sc.close();
+    }
 
 
     public static void main(String arg[]){
@@ -318,6 +430,13 @@ public class java_basics1 {
         //Prob34_hexArea()
         //Prob35_Area()
         //Prob36_Dist_bw_two();
-        //Peob37_reverse_array();
+        //Prob37_reverse_array();
+        //prob38_Count_Characters_in_String();
+        //Prob39_Unique_Three_Digit_Numbers();
+        //Prob40_list_char_array();
+        //Prob41_ASCII_Value_Finder();
+        //Prob42_Input_and_Display_password();
+        //Prob43_Twinkle_Poem_Formatter();
+        //Prob44_Compute_n_nn_nnn();
     }
 }
