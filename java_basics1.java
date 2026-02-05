@@ -1,6 +1,10 @@
 import java.util.*;
 import java.nio.charset.Charset;//Prob 40
 import java.io.Console; //Prob 42
+import java.io.File; //Prob 45
+import java.util.Calendar;//Prob 46
+import java.util.TimeZone;//Prob 46
+import java.text.SimpleDateFormat;//Prob 46
 
 public class java_basics1 {
 
@@ -393,6 +397,67 @@ public class java_basics1 {
         System.out.println("sum = "+sum1);
         sc.close();
     }
+    public static void Prob45_file_size_finder(){
+         System.out.println("/home/students/abc.txt  : " + new File("abc.txt").length() + " bytes");
+        System.out.println("/home/students/test.txt : " + new File("test.txt").length() + " bytes");
+    }
+    public static void Prob46_system_time(){
+        System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+    }
+    public static void Prob47_formatted_system_time(){
+        // Create a SimpleDateFormat with a specific date and time format
+		SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		// Set the time zone for the calendar to GMT
+		cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
+		// Display the current date and time in the specified format
+		System.out.println("\nNow: " + cdt.format(System.currentTimeMillis()));
+    }
+    public static void Prob48_Print_Odd_Numbers(){
+        int i = 1;
+        while(i<100){
+            System.out.println(i);
+            i+=2;
+        }
+    }
+    public static void Prob49_check_even_odd(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number to check odd/even : ");
+        int i = sc.nextInt();
+        if(i%2==0){
+            System.out.print('1');
+        }else{
+            System.out.print('0');
+        }
+        sc.close();
+    }
+    public static void Prob50_div_by_3_5_both(){
+        System.out.println("\nDivided by 3: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0)
+                System.out.print(i + ", ");
+        }
+
+        // Print numbers divided by 5
+        System.out.println("\n\nDivided by 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+
+        // Print numbers divided by both 3 and 5
+        System.out.println("\n\nDivided by 3 & 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+        System.out.println("\n");
+    }
+    public static void Prob51_String_to_int(){
+        Scanner SC = new Scanner(System.in);
+        String str = sc.next();
+        // code
+        sc.close();
+    }
 
 
     public static void main(String arg[]){
@@ -440,5 +505,12 @@ public class java_basics1 {
         //Prob42_Input_and_Display_password();
         //Prob43_Twinkle_Poem_Formatter();
         //Prob44_Compute_n_nn_nnn();
+        //Prob45_file_size_finder();
+        //Prob46_system_time();
+        //Prob47_formatted_system_time();
+        //Prob48_Print_Odd_Numbers();
+        //Prob49_check_even_odd();
+        //Prob50_div_by_3_5_both();
+        Prob51_String_to_int();
     }
 }
