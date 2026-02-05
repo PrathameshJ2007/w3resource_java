@@ -265,10 +265,11 @@ public class java_basics1 {
         System.out.println("The distance between the two points is : " + distance + " km");
         sc.close();
     }
-    public static void Peob37_reverse_array(){
-        int numbers[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100};
-        reverse_array(marks);    
-        int start = 0 , end = numbers.length - 1;
+    public static void Prob37_reverse_array(){
+        Scanner sc = new Scanner(System.in);
+        char[] sentenceC = sc.nextLine().toCharArray();
+        int start = 0;
+        int end = sentenceC.length - 1;
         while(start<end){
             char temp = sentenceC[start];
             sentenceC[start] = sentenceC[end] ;
@@ -279,6 +280,7 @@ public class java_basics1 {
         for (int i = 0 ; i<= sentenceC.length - 1 ; i++){
             System.out.print(sentenceC[i]);
         }        
+        sc.close();
     }
     public static void Prob38_Count_Characters_in_String(){
         Scanner sc = new Scanner(System.in);
