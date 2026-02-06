@@ -550,8 +550,41 @@ public class java_basics1 {
     }
     public static void Prob58_Capitalize_Each_Word(){
         Scanner sc = new Scanner(System.in);
-        char strArr[] = sc.next().toCharArray();
-    }
+        char strArr[] = sc.nextLine().toCharArray();
+        strArr[0] = Character.toUpperCase(strArr[0]);
+        for(int i = 1 ; i<= strArr.length ; i++){
+            if(i == strArr.length){
+                break;
+            }else{
+                if (Character.isWhitespace(strArr[i]) && !Character.isWhitespace(strArr[i+1])){
+                    strArr[i+1] = Character.toUpperCase(strArr[i+1]);
+                }
+            }
+        }
+        for(int i = 0 ; i<strArr.length ; i++ ){
+            System.out.print(strArr[i]);}
+        sc.close();
+        }
+        public static void Prob59_Convert_to_Lowercase(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.nextLine().toCharArray();
+        
+        for(int i = 0 ; i< strArr.length ; i++){
+            strArr[i] = Character.toLowerCase(strArr[i]);
+        }
+        for(int i = 0 ; i<strArr.length ; i++ ){
+            System.out.print(strArr[i]);
+        }
+        }
+        public static void Prob60_Find_Penultimate_Word(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.nextLine().toCharArray();
+        for(int i = strArr.length - 1  ; i>=0 ; i--){// reverse
+            if(Character.isWhitespace(strArr[i])){// first space
+                // contine to code
+            }
+        }
+        }
     
 
     public static void main(String arg[]){
@@ -612,5 +645,8 @@ public class java_basics1 {
         //Prob55_sec_to_time();
         //Prob56_Count_Divisibles_in_Range();
         //Prob57_factor_of_int();
+        //Prob58_Capitalize_Each_Word();
+        //Prob59_Convert_to_Lowercase();
+        Prob60_Find_Penultimate_Word();
     }
 }
