@@ -499,7 +499,20 @@ public class java_basics1 {
         System.out.print(y > x && z > y);}
         sc.close();
     }
-    public static void Prob54_sec_to_time(){
+    
+    public static void Prob54_same_rightmost_dgt(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        if(a % 10 == b % 10 ||c % 10 == b % 10 || a % 10 == c % 10 ){
+            System.out.print("true");
+        }else{
+            System.out.print("false");
+        }
+        sc.close();
+    }
+    public static void Prob55_sec_to_time(){
         Scanner sc = new Scanner(System.in);
         int seconds = sc.nextInt();
         int S = seconds % 60;  // Calculate the remaining seconds
@@ -509,7 +522,7 @@ public class java_basics1 {
         System.out.print(H + ":" + M + ":" + S);
         sc.close();
     }
-    public static void Prob55_Count_Divisibles_in_Range(){
+    public static void Prob56_Count_Divisibles_in_Range(){
         Scanner sc = new Scanner(System.in);
         int start = sc.nextInt();
         int  end = sc.nextInt();
@@ -578,7 +591,9 @@ public class java_basics1 {
         //Prob51_String_to_int();
         //Prob52_Sum_Equals_Third_Integer();
         //Prob53_Number_Comparison_Logic();
-        //Prob54_sec_to_time();
-        //Prob55_Count_Divisibles_in_Range();
+        Prob54_same_rightmost_dgt();
+        //Prob55_sec_to_time();
+        //Prob56_Count_Divisibles_in_Range();
+        //Prob
     }
 }
