@@ -486,6 +486,42 @@ public class java_basics1 {
         }
         sc.close();
     }
+    public static void Prob53_Number_Comparison_Logic(){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt(); 
+        System.out.print("Input a boolean value (true/false): ");
+        boolean xyz = sc.nextBoolean();
+        System.out.print("\n");
+        if (xyz){
+            System.out.print (z > y);}else{
+        System.out.print(y > x && z > y);}
+        sc.close();
+    }
+    public static void Prob54_sec_to_time(){
+        Scanner sc = new Scanner(System.in);
+        int seconds = sc.nextInt();
+        int S = seconds % 60;  // Calculate the remaining seconds
+        int H = seconds / 60;  // Convert total seconds to minutes
+        int M = H % 60;         // Calculate the remaining minutes
+        H = H / 60;
+        System.out.print(H + ":" + M + ":" + S);
+        sc.close();
+    }
+    public static void Prob55_Count_Divisibles_in_Range(){
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int  end = sc.nextInt();
+        int  key = sc.nextInt();
+        int count = 0;
+        for (int i  = start ; i<= end ;i++){
+            if (i % key ==  0){
+                count+=1;
+            }
+        }
+        System.out.print("count : " + count);
+    }
     
 
     public static void main(String arg[]){
@@ -541,5 +577,8 @@ public class java_basics1 {
         //Prob50_div_by_3_5_both();
         //Prob51_String_to_int();
         //Prob52_Sum_Equals_Third_Integer();
+        //Prob53_Number_Comparison_Logic();
+        //Prob54_sec_to_time();
+        //Prob55_Count_Divisibles_in_Range();
     }
 }
