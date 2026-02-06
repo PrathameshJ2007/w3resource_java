@@ -453,12 +453,24 @@ public class java_basics1 {
         System.out.println("\n");
     }
     public static void Prob51_String_to_int(){
-        Scanner SC = new Scanner(System.in);
-        String str = sc.next();
-        // code
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.next().toCharArray(); 
+        int number = 0;
+        for ( int i = strArr.length - 1 ; i>=0 ; i--){
+            number += (((int)strArr[(strArr.length - 1)-i])-48)*(Math.pow(10,i));
+        }
+        System.out.println(number);
         sc.close();
+        //25 =['2','5']
+        //20+5
+        // 2*10 + 5
+        // arr[0]*10 + arr[1]
+        // arr[0]*100 + arr[1]*10 + arr[2]; 253 
+        // 2 - 2 = 0
+        // 2 - 1 = 1
+        // 2 - 0 = 2
     }
-
+    
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -511,6 +523,6 @@ public class java_basics1 {
         //Prob48_Print_Odd_Numbers();
         //Prob49_check_even_odd();
         //Prob50_div_by_3_5_both();
-        Prob51_String_to_int();
+        //Prob51_String_to_int();
     }
 }
