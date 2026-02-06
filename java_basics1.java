@@ -461,6 +461,10 @@ public class java_basics1 {
         }
         System.out.println(number);
         sc.close();
+        // String str1 = in.nextLine();
+        // int result = Integer.parseInt(str1);
+        // System.out.printf("The integer value is: %d", result);
+        //-----------------------
         //25 =['2','5']
         //20+5
         // 2*10 + 5
@@ -524,5 +528,6 @@ public class java_basics1 {
         //Prob49_check_even_odd();
         //Prob50_div_by_3_5_both();
         //Prob51_String_to_int();
+        
     }
 }
