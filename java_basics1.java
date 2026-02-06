@@ -534,6 +534,23 @@ public class java_basics1 {
             }
         }
         System.out.print("count : " + count);
+        sc.close();
+    }
+    public static void Prob57_factor_of_int(){
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int factor = 0;
+        for (int i = 1 ; i <= number ; i++){
+            if( number % i == 0){
+                factor++ ;
+            }
+        }
+        System.out.print("factor :" + factor);
+        sc.close();
+    }
+    public static void Prob58_Capitalize_Each_Word(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.next().toCharArray();
     }
     
 
@@ -591,9 +608,9 @@ public class java_basics1 {
         //Prob51_String_to_int();
         //Prob52_Sum_Equals_Third_Integer();
         //Prob53_Number_Comparison_Logic();
-        Prob54_same_rightmost_dgt();
+        //Prob54_same_rightmost_dgt();
         //Prob55_sec_to_time();
         //Prob56_Count_Divisibles_in_Range();
-        //Prob
+        //Prob57_factor_of_int();
     }
 }
