@@ -474,6 +474,18 @@ public class java_basics1 {
         // 2 - 1 = 1
         // 2 - 0 = 2
     }
+    public static void Prob52_Sum_Equals_Third_Integer(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt(); 
+        if (a+b == c || a+c == b || b+c == a){
+            System.out.print("True");
+        }else{
+            System.out.print("False");
+        }
+        sc.close();
+    }
     
 
     public static void main(String arg[]){
@@ -528,6 +540,6 @@ public class java_basics1 {
         //Prob49_check_even_odd();
         //Prob50_div_by_3_5_both();
         //Prob51_String_to_int();
-        
+        //Prob52_Sum_Equals_Third_Integer();
     }
 }
