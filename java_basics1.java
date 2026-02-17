@@ -577,15 +577,101 @@ public class java_basics1 {
         }
         }
         public static void Prob60_Find_Penultimate_Word(){
-        Scanner sc = new Scanner(System.in);
-        char strArr[] = sc.nextLine().toCharArray();
-        for(int i = strArr.length - 1  ; i>=0 ; i--){// reverse
-            if(Character.isWhitespace(strArr[i])){// first space
-                // contine to code
+            String str = "The quick brown fox jumps over the lazy dog.";
+            
+            int start =0 , end = 0;
+            for (int i = str.length()-1 ;  i >=0 ; i--){// for value of start
+                if(str.charAt(i) == ' '){
+                    end = i;
+                    break;
+                }
+                
+            }
+            for (int i = end-1 ;  i >=0 ; i--){//// for value of end
+                if(str.charAt(i) == ' '){
+                    start = i;
+                    break;
+                }   
+            }
+            for (int i = start + 1 ;  i < end; i++){
+                System.out.print(str.charAt(i));
             }
         }
+        public static void Prob61_Reverse_Word(){
+            String word = "tushar";
+            String result = "";
+            for (int i = word.length()-1 ;  i >=0 ; i--){//// for value of end
+                result += word.charAt(i);
+            }
+            System.out.println(result);
         }
-    
+        public static void Prob62_Check_Subtraction_Difference(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt(); 
+        if (Math.abs(Math.abs(a-b) - c) <= 20 || Math.abs(Math.abs(a-c) - b) <= 20 || Math.abs(Math.abs(c-b) - a) <= 20){
+            System.out.print("False");
+        }else{
+            System.out.print("True");
+        }
+        sc.close();
+        }
+    public static void Prob63_Largest_Smallest_Value(){ 
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        if (a==b){
+            System.out.println("0");
+        }else if(a%6  == b%6){
+            if (a<b){
+                System.out.print("Smallest : " + a);
+            }else{
+                System.out.print("Smallest : " + b);
+            }
+        }else{
+            if (a<b){
+                System.out.print("Largest : " + b);
+            }else{
+                System.out.print("Largest : " + a);
+            }
+        }
+        sc.close();
+    }
+    public static void Prob64_Common_digit(){
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Input the first number : ");
+        int p = in.nextInt();
+
+        System.out.print("Input the second number: ");
+        int q = in.nextInt();
+
+        boolean result = false;
+
+        if ((p > 25 || q < 75)) {
+            int x = p % 10;
+            int y = q % 10;
+
+            p /= 10;
+            q /= 10;
+
+            result = (p == q || p == y || x == q || x == y);
+        }
+
+        System.out.println("Result: " + result);
+        in.close();
+    }
+    public static void Prob65_Custom_mod(){
+        int a = 10;
+        int b = 45;
+        if (a>b){
+            System.out.print("mod-sub : " + (a-b));
+        }else{
+            System.out.print("mod-sub : " + (b-a));
+        }
+
+    }
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -647,6 +733,11 @@ public class java_basics1 {
         //Prob57_factor_of_int();
         //Prob58_Capitalize_Each_Word();
         //Prob59_Convert_to_Lowercase();
-        Prob60_Find_Penultimate_Word();
+        //Prob60_Find_Penultimate_Word();
+        //Prob61_Reverse_Word();
+        //Prob62_Check_Subtraction_Difference();
+        //Prob63_Largest_Smallest_Value();
+        //Prob64_Common_digit();
+        //Prob65_Custom_mod();
     }
 }
