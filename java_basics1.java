@@ -672,6 +672,114 @@ public class java_basics1 {
         }
 
     }
+    public static void Prob66_Sum_of_100_Prime(){
+        int  n = 100 , pSum = 0 ;
+        // 2 -> 1,2
+        // 3 -> 1,2,3
+        // 4 -> 1,2,3,4
+        outerLoop: // This is the label
+        for (int i = 2; i <= n; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    // This will break the loop labeled 'outerLoop'
+                    continue outerLoop; 
+                }
+            }
+            pSum += i;
+            System.out.println("i : " + i);
+        }
+
+        System.out.println("sum  : " + pSum );
+
+    }
+    public static void Prob67_Insert_Word_in_Middle(){
+        String str1 = "Tushar Borse";
+        String str2 = " Ravindra ";
+        String[] temp = str1.split(" "); 
+        String result = temp[0] + str2 + temp[1];
+        System.out.println(result);
+    }
+    public static void Prob68_Repeat_Last_3_Characters(){
+        String result = "";
+        String Input = "TusharRSB";
+        for(int i = Input.length()-1 ; i >= Input.length()-3 ; i-- ){
+            result += Input.charAt(i);
+        }
+        result += result+result+result;
+        System.out.println(result);
+    }
+    public static void Prob69_Extract_First_Half(){
+        String result = "";
+        String Input = "Python";
+        for(int i = 0 ; i < Input.length()/2 ; i++ ){
+            result += Input.charAt(i);
+        }
+        System.out.println(result);
+    }
+    public static void Prob70_Short_Long_Short_String(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = Str1 + Str2 + Str1;   
+        System.out.println(result);
+    }
+    public static void Prob71_Remove_First_Char_Concatenate(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = Str1.substring(1) + Str2.substring(1);   //substring - > return string from starting index
+        System.out.println(result);
+    }
+    public static void Prob72_First_3_char(){
+        String result = "";
+        String Input = "123456";
+        if(Input.length() == 0){
+            result = "###";
+        }else if(Input.length() == 1){
+            result = Input +"##";
+        }else if(Input.length() == 2){
+            result = Input +"#";
+        }else if(Input.length() == 3){
+            result = Input ;
+        }else{
+            for(int i = 0 ; i < 3 ; i++ ){
+                result += Input.charAt(i);
+            }
+        }
+        System.out.println(result);
+    }
+    public static void Prob73_First_Last_Combo(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = "";
+        if(Str1.length() == 0 && Str2.length() == 0 ){ // both are empty
+             result ="##";
+        }else if((Str1.length() == 0 && Str2.length() != 0 )){ // only 2nd is empty
+             result ="#"  + Str2.charAt(Str2.length()-1);
+        }else if((Str1.length() != 0 && Str2.length() == 0 )){// only 3rd is empty
+             result = Str1.charAt(0)+ "#"  ;
+        }else{ // both are filled
+            result = "" + Str1.charAt(0) + Str2.charAt(Str2.length()-1);   
+        }
+        
+        System.out.println(result);
+    }
+    public static void Prob74_10_as_First_Last(){
+        int numbers[] = {20,30,40,50,60,10};
+        if(numbers[0] == 10 || numbers[numbers.length-1] == 10){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+        public static void Prob75_First_Last_same(){
+        int numbers[] = {10,30,40,50,60,10};
+        if(numbers[0] ==  numbers[numbers.length-1] ){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+
+
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -739,5 +847,15 @@ public class java_basics1 {
         //Prob63_Largest_Smallest_Value();
         //Prob64_Common_digit();
         //Prob65_Custom_mod();
+        //Prob66_Sum_of_100_Prime();
+        //Prob67_Insert_Word_in_Middle();
+        //Prob68_Repeat_Last_3_Characters();
+        //Prob69_Extract_First_Half();
+        //Prob70_Short_Long_Short_String();
+        //Prob71_Remove_First_Char_Concatenate();
+        //Prob72_First_3_char();
+        //Prob73_First_Last_Combo();
+        //Prob74_10_as_First_Last();
+        Prob75_First_Last_same();
     }
 }
