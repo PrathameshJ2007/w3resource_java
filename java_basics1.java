@@ -770,7 +770,7 @@ public class java_basics1 {
             System.out.println("False");
         }
     }
-        public static void Prob75_First_Last_same(){
+    public static void Prob75_First_Last_same(){
         int numbers[] = {10,30,40,50,60,10};
         if(numbers[0] ==  numbers[numbers.length-1] ){
             System.out.println("True");
@@ -778,6 +778,127 @@ public class java_basics1 {
             System.out.println("False");
         }
     }
+    public static void Prob76_First_Last_array(){
+        int arr1[]= {50, -20, 0, 30, 40, 60, 12};
+        int arr2[]= {45, 20, 10, 20, 30, 50, 11}; 
+        if(arr1[0] == arr2[(arr2.length-1)] ){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+    }
+    public static void Prob77_newArray_First_Last_array(){
+        int arr1[]= {50, -20, 0, 30, 40, 60, 12};
+        int arr2[]= {45, 20, 10, 20, 30, 50, 11}; 
+        int arr3[] = new int[3]; 
+        arr3[0] = arr1[0];
+        arr3[1] = arr2[arr2.length - 1];
+        System.out.print(arr3[0]+ "," + arr3[1]);
+    }
+    public static void Prob78_a4or7(){
+        int arr2[]= {4,17}; 
+        for (int i = 0 ; i<2 ; i++){
+            if( (arr2[i] == 4) || (arr2[i] == 7) ){
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob79_rotated_array(){
+        int arr1[]= {20, 30, 40}; 
+        int rotated[] = { arr1[1] , arr1[2] , arr1[0] };
+        for (int i = 0 ; i<3 ; i++){
+                System.out.print(rotated[i] + ",");
+            
+        }
+    }
+    public static void Prob80_largest_first_last(){
+        int arr1[]= {20, 30, 40}; 
+        if(arr1[0]>arr1[2]){
+            System.out.println("Largest element is "+arr1[0]);
+        }else{
+            System.out.println("Largest element is "+arr1[2]);
+        }
+    }
+    public static void Prob81_swap_first_last(){
+        int arr1[]= {20, 30, 40}; 
+        int temp = arr1[0];
+        arr1[0] = arr1[2];
+        arr1[2] = temp;
+        for (int i = 0 ; i<3 ; i++){
+                System.out.print(arr1[i] + ",");   
+        }
+    }
+    public static void Prob82_largest_first_last_middle(){
+        int arr1[]= {20, 30, 40, 50, 67}; 
+        int a = arr1[0] ;
+        int b = arr1[(arr1.length/2) - 1];
+        int c = arr1[(arr1.length-1)];
+        if(a>b && a>c){
+            System.out.println("Largest element is "+ a);
+        }else if (b>c && b>a){
+            System.out.println("Largest element is "+ b);
+        }else{
+            System.out.println("Largest element is "+ c);
+        }
+    }
+    public static void Prob83_Multiply_Array_Elements(){
+        int arr1[]= {1, 3, -5, 4};
+        int arr2[] = {1, 4, -5, -2};
+        int result[] = new int[arr1.length];
+        for (int i = 0 ; i < arr1.length ; i++){
+            result[i] = arr1[i]*arr2[i];
+            System.out.print(result[i]+",");
+        }
+    }
+    public static void Prob84_add_last3(){
+        String str1 = "python";
+        String subStr = str1.substring(str1.length()-3);
+        String result = subStr + str1 + subStr  ;
+        System.out.print(result);
+    }
+    public static void Prob85_String_Starts_with_Word(){
+        String mainString = "Hello how are you?";
+        String word = "Hello";
+        if (mainString.indexOf(word) == 0){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+    public static void Prob86_Collatz_Conjecture_Simulation(){
+        int n = 78;
+        while(n!=1){
+            System.out.print(n+",");
+            if( n%2 == 0 ){
+                n/=2;
+            }else{
+                n = (n*3) + 1;
+            }
+        }
+    }
+    public static void Prob86_Digit_Sum_in_Words(){
+        
+        int num = 169;
+        int sum = 0 ; 
+        while(num != 0){
+            sum += num%10;  
+            num /= 10 ;
+        }
+        String[] words = {
+            "zero", "one", "two", "three", "four",
+            "five", "six", "seven", "eight", "nine"
+        };
+        // sum 61; one six
+        String result = ""; 
+        while(sum != 0){
+            result = words[sum%10] + result;
+            sum /= 10 ;
+        } 
+        System.out.print(result);
+    }
+
 
 
 
@@ -856,6 +977,18 @@ public class java_basics1 {
         //Prob72_First_3_char();
         //Prob73_First_Last_Combo();
         //Prob74_10_as_First_Last();
-        Prob75_First_Last_same();
+        //Prob75_First_Last_same();
+        //Prob76_First_Last_array();
+        //Prob77_newArray_First_Last_array();
+        //Prob78_a4or7();
+        //Prob79_rotated_array();
+        // Prob80_largest_first_last();
+        //Prob81_swap_first_last();
+        //Prob82_largest_first_last_middle();
+        //Prob83_Multiply_Array_Elements();
+        //Prob84_add_last3();
+        //Prob85_String_Starts_with_Word();
+        //Prob86_Collatz_Conjecture_Simulation();
+        Prob86_Digit_Sum_in_Words();
     }
 }
