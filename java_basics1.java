@@ -878,7 +878,7 @@ public class java_basics1 {
             }
         }
     }
-    public static void Prob86_Digit_Sum_in_Words(){
+    public static void Prob87_Digit_Sum_in_Words(){
         
         int num = 169;
         int sum = 0 ; 
@@ -989,6 +989,6 @@ public class java_basics1 {
         //Prob84_add_last3();
         //Prob85_String_Starts_with_Word();
         //Prob86_Collatz_Conjecture_Simulation();
-        Prob86_Digit_Sum_in_Words();
+        Prob87_Digit_Sum_in_Words();
     }
 }
