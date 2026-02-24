@@ -879,7 +879,6 @@ public class java_basics1 {
         }
     }
     public static void Prob87_Digit_Sum_in_Words(){
-        
         int num = 169;
         int sum = 0 ; 
         while(num != 0){
@@ -898,9 +897,250 @@ public class java_basics1 {
         } 
         System.out.print(result);
     }
+    public static void Prob88_System_Environment(){
+        System.out.println("\nCurrent system environment:");
+        System.out.println(System.getenv());
+        System.out.println("\n\nCurrent system properties:");
+        System.out.println(System.getProperties());
+    }
+    public static void Prob89_Security_Manager(){
+        // Print a message indicating the display of the system security interface
+        System.out.println("System security interface:");
+        // Retrieve and print the system security manager using System.getSecurityManager()
+        //System.out.println(System.getSecurityManager());
+    }
+    public static void Prob90_Environment_Variables(){
+        // Display the value of the specified environment variable "PATH"
+        System.out.println("\nEnvironment variable PATH: ");
+        System.out.println(System.getenv("PATH"));
+        // Display the value of the specified environment variable "TEMP"
+        System.out.println("\nEnvironment variable TEMP: ");
+        System.out.println(System.getenv("TEMP"));
+        // Display the value of the specified environment variable "USERNAME"
+        System.out.println("\nEnvironment variable USERNAME: ");
+        System.out.println(System.getenv("USERNAME"));
 
+    }
+    public static void Prob91_time_in_NS(){
+        long startTime = System.nanoTime();  
+        // Sample program: Display the first 10 natural numbers.
+        int i;
+        System.out.println("The first 10 natural numbers are:\n");
+        for (i = 1; i <= 10; i++) {      
+            System.out.println(i);
+        }
+        // Calculate the elapsed time in nanoseconds.
+        long estimatedTime = System.nanoTime() - startTime; 
+        System.out.println("Estimated time (in nanoseconds) to get the first 10 natural numbers: " + estimatedTime);
+    }
+    public static void Prob92_even_odd_array(){
+        int arr1[] = {10,22,25,26,35,36};
+        int evenC = 0 ;
+        int oddC = 0 ;
+        int bitMask = 1;
+        for (int i = 0 ; i< arr1.length ; i++){
+            if ((arr1[i] & bitMask) == 0){
+                evenC+=1;
+            }else{
+                oddC+=1;
+            }
+        }
+        System.out.println("Even count : " + evenC);
+        System.out.println("Odd count : " + oddC);
+    }
+    public static void Prob93_Check_Adjacent(){
+        int arr[] = {10,10,20,20,15,18};
+        boolean twentyB = false;
+        boolean tenB = false;
 
+        for (int i = 0 ; i <= arr.length-2 ; i++){
+            if((arr[i]==20 ) && (arr[i+1]==20)){
+                twentyB = true;
+                 
+            }else if((arr[i]==10 ) && (arr[i+1]==10)){
+                tenB = true;  
+            }
+        }
+        if(twentyB && tenB){
+            System.out.println("false");
+        }else{
+            System.out.println("true");
+        }
+    }
+    public static void Prob94_Rearrange_Odd_Even() {
+        int arr1[] = {10, 22, 25, 26, 35, 36};
+        for (int i = 0; i < arr1.length; i++) {
+            // If current element is odd
+            if (arr1[i] % 2 != 0) {
+                int n = i;
+                // Move backward while previous elements are even
+                while (n > 0 && arr1[n - 1] % 2 == 0) {
+                    // Swap arr1[n] and arr1[n-1]
+                    int temp = arr1[n];
+                    arr1[n] = arr1[n - 1];
+                    arr1[n - 1] = temp;
+                    n--;   // Move left
+                }
+            }
+        }
 
+        // Print result
+        for (int num : arr1) {
+            System.out.print(num + " ");
+        }
+    }
+    public static void  Prob95_Create_String_Array(){
+        int n = 50;
+        String arr[] = new String[n];
+        for (int i = 0 ; i < arr.length ; i++){
+            arr[i] = (""+i);
+            System.out.print(arr[i]+ " " );
+        }
+    }
+    public static void Prob96_10_before_20(){
+        int arr[] = {25,82,10,56,96,20};
+        int start = 0;
+        for(int i = 0 ; i< arr.length ; i++){
+            if (arr[i] == 10){
+                start = i+1;
+                break;
+            }
+        }
+        for(int i = start ; i< arr.length ; i++){
+            if (arr[i] == 20){
+                System.out.println("There  is a 10 in an array of integers with a 20 somewhere later on.");
+                return;
+            }
+        }
+        System.out.println("There  is not a 10 in an array of integers with a 20 somewhere later on.");
+    }
+    public static void Prob97_Number_Adjacent_Separated_One(){
+        int arr[] = {25,82,10,56,20};
+        for(int i = 0 ; i< arr.length-2 ; i++){
+            if (arr[i] == arr[i+1] || arr[i] == arr[i+2]){
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob98_20_Appears_Thrice_Non_Consecutively(){
+        int arr[] = {25,20,10,56,20,18,20};
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 20) {
+                if (i < arr.length - 1 && arr[i + 1] == 20) {
+                     System.out.println("false");
+                     return;
+                }
+                count++;
+            }
+        }
+        if(count == 3){
+            System.out.println("True");
+        }else{
+            System.out.println("false");
+        }
+    }
+    public static void Prob99_Specified_Number_Adjacent_Pairs(){
+        int number = 20;
+        int arr[] = {25,20,10,56,20,20};
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] == number && arr[i+1] == number) {
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob100_Count_Elements_Differ_1(){
+        int arr1[] = {25,26,23,29,25};
+        int arr2[] = {95,25,33,30,95};
+        int count = 0;
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (Math.abs(arr1[i] - arr2[i]) <= 1 ){
+                count++;
+            }
+        }
+        System.out.print("count : " + count);
+    }
+    public static void Prob101_Check_10_Exceeds_20_in_Array(){
+        int arr1[] = {25,26,23,29,25,20};
+        int countTen = 0;
+        int countTwenty = 0;
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (arr1[i]== 10 ){
+                countTen ++;
+            } else if(arr1[i]== 20){
+                countTwenty ++;
+            }
+        }
+        if(countTen > countTwenty){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+    }
+        public static void Prob102_contain_10_30(){
+        int arr1[] = {25,26,23,29,25,30};
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (arr1[i]== 10 || arr1[i]== 30 ){
+                System.out.println("true");
+                return;
+            } 
+        }
+        System.out.println("false");
+
+    }
+    public static void Prob103_Array_After_Last_10() {
+        int arr1[] = {25, 26, 10, 29, 25, 30};
+
+        // Find last occurrence of 10
+        int lastIndex = -1;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] == 10) {
+                lastIndex = i;
+            }
+        }
+        // If 10 not found or it's the last element
+        if (lastIndex == -1 || lastIndex == arr1.length - 1) {
+            System.out.println("No elements after last 10");
+            return;
+        }
+        // Create new array of correct size
+        int newLength = arr1.length - lastIndex - 1;
+        int newArr[] = new int[newLength];
+        // Copy elements after last 10
+        for (int i = 0; i < newLength; i++) {
+            newArr[i] = arr1[lastIndex + 1 + i];
+        }
+        // Print result
+        System.out.println(Arrays.toString(newArr));
+    }
+    public static void Prob104_Array_before_Last_10() {
+        int arr1[] = {25, 26, 10, 29, 25, 30};
+        // Find last occurrence of 10
+        int lastIndex = -1;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] == 10) {
+                lastIndex = i;
+            }
+        }
+        // If 10 not found
+        if (lastIndex == -1) {
+            System.out.println("10 not found in array");
+            return;
+        }
+        // Create new array with elements before last 10
+        int newArr[] = new int[lastIndex];
+        for (int i = 0; i < lastIndex; i++) {
+            newArr[i] = arr1[i];
+        }
+        System.out.println(Arrays.toString(newArr));
+    }
+    public static void Prob105_Group_Match_Start_and_End(){
+        
+    }
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -982,13 +1222,32 @@ public class java_basics1 {
         //Prob77_newArray_First_Last_array();
         //Prob78_a4or7();
         //Prob79_rotated_array();
-        // Prob80_largest_first_last();
+        //Prob80_largest_first_last();
         //Prob81_swap_first_last();
         //Prob82_largest_first_last_middle();
         //Prob83_Multiply_Array_Elements();
         //Prob84_add_last3();
         //Prob85_String_Starts_with_Word();
         //Prob86_Collatz_Conjecture_Simulation();
-        Prob87_Digit_Sum_in_Words();
+        //Prob87_Digit_Sum_in_Words();
+        //Prob88_System_Environment();
+        //Prob89_Security_Manager();
+        //Prob90_Environment_Variables();
+        //Prob91_time_in_NS();
+        //Prob92_even_odd_array();
+        //Prob93_Check_Adjacent();
+        //Prob94_Rearrange_Odd_Even();
+        //Prob95_Create_String_Array();
+        //Prob96_10_before_20();
+        //Prob97_Number_Adjacent_Separated_One();
+        //Prob98_20_Appears_Thrice_Non_Consecutively();
+        //Prob99_Specified_Number_Adjacent_Pairs();
+        //Prob100_Count_Elements_Differ_1();
+        //Prob101_Check_10_Exceeds_20_in_Array();
+        //Prob102_contain_10_30();
+        //Prob103_Array_After_Last_10();
+        //Prob104_Array_before_Last_10();
+        Prob105_Group_Match_Start_and_End();
+
     }
 }
