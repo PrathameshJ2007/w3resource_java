@@ -1347,7 +1347,7 @@ public class java_basics1 {
         //Prob108_Sum_Digits_to_Single_Digit();
         //Prob109_Staircase_Coins();
         //Prob110_Power_4();
-         Prob111_add_withot_sum();
+        //Prob111_add_withot_sum();
         //Prob112_Trailing_Zeros_in_Factorial();
 
     }
