@@ -1211,6 +1211,31 @@ public class java_basics1 {
         int n = 60;
         System.out.println(((n > 0) && ((n & (n - 1)) == 0) && (n % 3 == 1) ) );
     }
+    public static void Prob111_add_withot_sum(){
+                int x, y; 
+        Scanner in = new Scanner(System.in); 
+
+        System.out.print("Input first number: "); 
+        x = in.nextInt(); 
+
+        System.out.print("Input second number: "); 
+        y = in.nextInt();
+
+        while (y != 0) {
+            int carry = x & y; 
+            x = x ^ y; 
+            y = carry << 1; 
+        }
+
+        System.out.print("Sum: " + x); 
+        System.out.print("\n"); 
+    }
+    public static void Prob112_Trailing_Zeros_in_Factorial() {
+        
+    }
+
+    
+    
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
         //Prob02_sum_of_two()
@@ -1321,7 +1346,9 @@ public class java_basics1 {
         //Prob107_Three_Increasing_Adjacent_Numbers(); 
         //Prob108_Sum_Digits_to_Single_Digit();
         //Prob109_Staircase_Coins();
-        Prob110_Power_4();
+        //Prob110_Power_4();
+         Prob111_add_withot_sum();
+        //Prob112_Trailing_Zeros_in_Factorial();
 
     }
 }
