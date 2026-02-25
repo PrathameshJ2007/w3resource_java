@@ -890,12 +890,12 @@ public class java_basics1 {
             "five", "six", "seven", "eight", "nine"
         };
         // sum 61; one six
-        String result = ""; 
+        String resultArray = ""; 
         while(sum != 0){
-            result = words[sum%10] + result;
+            resultArray = words[sum%10] + resultArray;
             sum /= 10 ;
         } 
-        System.out.print(result);
+        System.out.print(resultArray);
     }
     public static void Prob88_System_Environment(){
         System.out.println("\nCurrent system environment:");
