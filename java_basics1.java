@@ -1,6 +1,10 @@
 import java.util.*;
 import java.nio.charset.Charset;//Prob 40
 import java.io.Console; //Prob 42
+import java.io.File; //Prob 45
+import java.util.Calendar;//Prob 46
+import java.util.TimeZone;//Prob 46
+import java.text.SimpleDateFormat;//Prob 46
 
 public class java_basics1 {
 
@@ -393,7 +397,750 @@ public class java_basics1 {
         System.out.println("sum = "+sum1);
         sc.close();
     }
+    public static void Prob45_file_size_finder(){
+         System.out.println("/home/students/abc.txt  : " + new File("abc.txt").length() + " bytes");
+        System.out.println("/home/students/test.txt : " + new File("test.txt").length() + " bytes");
+    }
+    public static void Prob46_system_time(){
+        System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+    }
+    public static void Prob47_formatted_system_time(){
+        // Create a SimpleDateFormat with a specific date and time format
+		SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		// Set the time zone for the calendar to GMT
+		cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
+		// Display the current date and time in the specified format
+		System.out.println("\nNow: " + cdt.format(System.currentTimeMillis()));
+    }
+    public static void Prob48_Print_Odd_Numbers(){
+        int i = 1;
+        while(i<100){
+            System.out.println(i);
+            i+=2;
+        }
+    }
+    public static void Prob49_check_even_odd(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number to check odd/even : ");
+        int i = sc.nextInt();
+        if(i%2==0){
+            System.out.print('1');
+        }else{
+            System.out.print('0');
+        }
+        sc.close();
+    }
+    public static void Prob50_div_by_3_5_both(){
+        System.out.println("\nDivided by 3: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0)
+                System.out.print(i + ", ");
+        }
 
+        // Print numbers divided by 5
+        System.out.println("\n\nDivided by 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+
+        // Print numbers divided by both 3 and 5
+        System.out.println("\n\nDivided by 3 & 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+        System.out.println("\n");
+    }
+    public static void Prob51_String_to_int(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.next().toCharArray(); 
+        int number = 0;
+        for ( int i = strArr.length - 1 ; i>=0 ; i--){
+            number += (((int)strArr[(strArr.length - 1)-i])-48)*(Math.pow(10,i));
+        }
+        System.out.println(number);
+        sc.close();
+        // String str1 = in.nextLine();
+        // int result = Integer.parseInt(str1);
+        // System.out.printf("The integer value is: %d", result);
+        //-----------------------
+        //25 =['2','5']
+        //20+5
+        // 2*10 + 5
+        // arr[0]*10 + arr[1]
+        // arr[0]*100 + arr[1]*10 + arr[2]; 253 
+        // 2 - 2 = 0
+        // 2 - 1 = 1
+        // 2 - 0 = 2
+    }
+    public static void Prob52_Sum_Equals_Third_Integer(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt(); 
+        if (a+b == c || a+c == b || b+c == a){
+            System.out.print("True");
+        }else{
+            System.out.print("False");
+        }
+        sc.close();
+    }
+    public static void Prob53_Number_Comparison_Logic(){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt(); 
+        System.out.print("Input a boolean value (true/false): ");
+        boolean xyz = sc.nextBoolean();
+        System.out.print("\n");
+        if (xyz){
+            System.out.print (z > y);}else{
+        System.out.print(y > x && z > y);}
+        sc.close();
+    }
+    
+    public static void Prob54_same_rightmost_dgt(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        if(a % 10 == b % 10 ||c % 10 == b % 10 || a % 10 == c % 10 ){
+            System.out.print("true");
+        }else{
+            System.out.print("false");
+        }
+        sc.close();
+    }
+    public static void Prob55_sec_to_time(){
+        Scanner sc = new Scanner(System.in);
+        int seconds = sc.nextInt();
+        int S = seconds % 60;  // Calculate the remaining seconds
+        int H = seconds / 60;  // Convert total seconds to minutes
+        int M = H % 60;         // Calculate the remaining minutes
+        H = H / 60;
+        System.out.print(H + ":" + M + ":" + S);
+        sc.close();
+    }
+    public static void Prob56_Count_Divisibles_in_Range(){
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int  end = sc.nextInt();
+        int  key = sc.nextInt();
+        int count = 0;
+        for (int i  = start ; i<= end ;i++){
+            if (i % key ==  0){
+                count+=1;
+            }
+        }
+        System.out.print("count : " + count);
+        sc.close();
+    }
+    public static void Prob57_factor_of_int(){
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int factor = 0;
+        for (int i = 1 ; i <= number ; i++){
+            if( number % i == 0){
+                factor++ ;
+            }
+        }
+        System.out.print("factor :" + factor);
+        sc.close();
+    }
+    public static void Prob58_Capitalize_Each_Word(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.nextLine().toCharArray();
+        strArr[0] = Character.toUpperCase(strArr[0]);
+        for(int i = 1 ; i<= strArr.length ; i++){
+            if(i == strArr.length){
+                break;
+            }else{
+                if (Character.isWhitespace(strArr[i]) && !Character.isWhitespace(strArr[i+1])){
+                    strArr[i+1] = Character.toUpperCase(strArr[i+1]);
+                }
+            }
+        }
+        for(int i = 0 ; i<strArr.length ; i++ ){
+            System.out.print(strArr[i]);}
+        sc.close();
+        }
+        public static void Prob59_Convert_to_Lowercase(){
+        Scanner sc = new Scanner(System.in);
+        char strArr[] = sc.nextLine().toCharArray();
+        
+        for(int i = 0 ; i< strArr.length ; i++){
+            strArr[i] = Character.toLowerCase(strArr[i]);
+        }
+        for(int i = 0 ; i<strArr.length ; i++ ){
+            System.out.print(strArr[i]);
+        }
+        }
+        public static void Prob60_Find_Penultimate_Word(){
+            String str = "The quick brown fox jumps over the lazy dog.";
+            
+            int start =0 , end = 0;
+            for (int i = str.length()-1 ;  i >=0 ; i--){// for value of start
+                if(str.charAt(i) == ' '){
+                    end = i;
+                    break;
+                }
+                
+            }
+            for (int i = end-1 ;  i >=0 ; i--){//// for value of end
+                if(str.charAt(i) == ' '){
+                    start = i;
+                    break;
+                }   
+            }
+            for (int i = start + 1 ;  i < end; i++){
+                System.out.print(str.charAt(i));
+            }
+        }
+        public static void Prob61_Reverse_Word(){
+            String word = "tushar";
+            String result = "";
+            for (int i = word.length()-1 ;  i >=0 ; i--){//// for value of end
+                result += word.charAt(i);
+            }
+            System.out.println(result);
+        }
+        public static void Prob62_Check_Subtraction_Difference(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt(); 
+        if (Math.abs(Math.abs(a-b) - c) <= 20 || Math.abs(Math.abs(a-c) - b) <= 20 || Math.abs(Math.abs(c-b) - a) <= 20){
+            System.out.print("False");
+        }else{
+            System.out.print("True");
+        }
+        sc.close();
+        }
+    public static void Prob63_Largest_Smallest_Value(){ 
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        if (a==b){
+            System.out.println("0");
+        }else if(a%6  == b%6){
+            if (a<b){
+                System.out.print("Smallest : " + a);
+            }else{
+                System.out.print("Smallest : " + b);
+            }
+        }else{
+            if (a<b){
+                System.out.print("Largest : " + b);
+            }else{
+                System.out.print("Largest : " + a);
+            }
+        }
+        sc.close();
+    }
+    public static void Prob64_Common_digit(){
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Input the first number : ");
+        int p = in.nextInt();
+
+        System.out.print("Input the second number: ");
+        int q = in.nextInt();
+
+        boolean result = false;
+
+        if ((p > 25 || q < 75)) {
+            int x = p % 10;
+            int y = q % 10;
+
+            p /= 10;
+            q /= 10;
+
+            result = (p == q || p == y || x == q || x == y);
+        }
+
+        System.out.println("Result: " + result);
+        in.close();
+    }
+    public static void Prob65_Custom_mod(){
+        int a = 10;
+        int b = 45;
+        if (a>b){
+            System.out.print("mod-sub : " + (a-b));
+        }else{
+            System.out.print("mod-sub : " + (b-a));
+        }
+
+    }
+    public static void Prob66_Sum_of_100_Prime(){
+        int  n = 100 , pSum = 0 ;
+        // 2 -> 1,2
+        // 3 -> 1,2,3
+        // 4 -> 1,2,3,4
+        outerLoop: // This is the label
+        for (int i = 2; i <= n; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    // This will break the loop labeled 'outerLoop'
+                    continue outerLoop; 
+                }
+            }
+            pSum += i;
+            System.out.println("i : " + i);
+        }
+
+        System.out.println("sum  : " + pSum );
+
+    }
+    public static void Prob67_Insert_Word_in_Middle(){
+        String str1 = "Tushar Borse";
+        String str2 = " Ravindra ";
+        String[] temp = str1.split(" "); 
+        String result = temp[0] + str2 + temp[1];
+        System.out.println(result);
+    }
+    public static void Prob68_Repeat_Last_3_Characters(){
+        String result = "";
+        String Input = "TusharRSB";
+        for(int i = Input.length()-1 ; i >= Input.length()-3 ; i-- ){
+            result += Input.charAt(i);
+        }
+        result += result+result+result;
+        System.out.println(result);
+    }
+    public static void Prob69_Extract_First_Half(){
+        String result = "";
+        String Input = "Python";
+        for(int i = 0 ; i < Input.length()/2 ; i++ ){
+            result += Input.charAt(i);
+        }
+        System.out.println(result);
+    }
+    public static void Prob70_Short_Long_Short_String(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = Str1 + Str2 + Str1;   
+        System.out.println(result);
+    }
+    public static void Prob71_Remove_First_Char_Concatenate(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = Str1.substring(1) + Str2.substring(1);   //substring - > return string from starting index
+        System.out.println(result);
+    }
+    public static void Prob72_First_3_char(){
+        String result = "";
+        String Input = "123456";
+        if(Input.length() == 0){
+            result = "###";
+        }else if(Input.length() == 1){
+            result = Input +"##";
+        }else if(Input.length() == 2){
+            result = Input +"#";
+        }else if(Input.length() == 3){
+            result = Input ;
+        }else{
+            for(int i = 0 ; i < 3 ; i++ ){
+                result += Input.charAt(i);
+            }
+        }
+        System.out.println(result);
+    }
+    public static void Prob73_First_Last_Combo(){
+        String Str1 = "Python" ;
+        String Str2 = "Tutorial" ; 
+        String result = "";
+        if(Str1.length() == 0 && Str2.length() == 0 ){ // both are empty
+             result ="##";
+        }else if((Str1.length() == 0 && Str2.length() != 0 )){ // only 2nd is empty
+             result ="#"  + Str2.charAt(Str2.length()-1);
+        }else if((Str1.length() != 0 && Str2.length() == 0 )){// only 3rd is empty
+             result = Str1.charAt(0)+ "#"  ;
+        }else{ // both are filled
+            result = "" + Str1.charAt(0) + Str2.charAt(Str2.length()-1);   
+        }
+        
+        System.out.println(result);
+    }
+    public static void Prob74_10_as_First_Last(){
+        int numbers[] = {20,30,40,50,60,10};
+        if(numbers[0] == 10 || numbers[numbers.length-1] == 10){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+    public static void Prob75_First_Last_same(){
+        int numbers[] = {10,30,40,50,60,10};
+        if(numbers[0] ==  numbers[numbers.length-1] ){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+    public static void Prob76_First_Last_array(){
+        int arr1[]= {50, -20, 0, 30, 40, 60, 12};
+        int arr2[]= {45, 20, 10, 20, 30, 50, 11}; 
+        if(arr1[0] == arr2[(arr2.length-1)] ){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+    }
+    public static void Prob77_newArray_First_Last_array(){
+        int arr1[]= {50, -20, 0, 30, 40, 60, 12};
+        int arr2[]= {45, 20, 10, 20, 30, 50, 11}; 
+        int arr3[] = new int[3]; 
+        arr3[0] = arr1[0];
+        arr3[1] = arr2[arr2.length - 1];
+        System.out.print(arr3[0]+ "," + arr3[1]);
+    }
+    public static void Prob78_a4or7(){
+        int arr2[]= {4,17}; 
+        for (int i = 0 ; i<2 ; i++){
+            if( (arr2[i] == 4) || (arr2[i] == 7) ){
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob79_rotated_array(){
+        int arr1[]= {20, 30, 40}; 
+        int rotated[] = { arr1[1] , arr1[2] , arr1[0] };
+        for (int i = 0 ; i<3 ; i++){
+                System.out.print(rotated[i] + ",");
+            
+        }
+    }
+    public static void Prob80_largest_first_last(){
+        int arr1[]= {20, 30, 40}; 
+        if(arr1[0]>arr1[2]){
+            System.out.println("Largest element is "+arr1[0]);
+        }else{
+            System.out.println("Largest element is "+arr1[2]);
+        }
+    }
+    public static void Prob81_swap_first_last(){
+        int arr1[]= {20, 30, 40}; 
+        int temp = arr1[0];
+        arr1[0] = arr1[2];
+        arr1[2] = temp;
+        for (int i = 0 ; i<3 ; i++){
+                System.out.print(arr1[i] + ",");   
+        }
+    }
+    public static void Prob82_largest_first_last_middle(){
+        int arr1[]= {20, 30, 40, 50, 67}; 
+        int a = arr1[0] ;
+        int b = arr1[(arr1.length/2) - 1];
+        int c = arr1[(arr1.length-1)];
+        if(a>b && a>c){
+            System.out.println("Largest element is "+ a);
+        }else if (b>c && b>a){
+            System.out.println("Largest element is "+ b);
+        }else{
+            System.out.println("Largest element is "+ c);
+        }
+    }
+    public static void Prob83_Multiply_Array_Elements(){
+        int arr1[]= {1, 3, -5, 4};
+        int arr2[] = {1, 4, -5, -2};
+        int result[] = new int[arr1.length];
+        for (int i = 0 ; i < arr1.length ; i++){
+            result[i] = arr1[i]*arr2[i];
+            System.out.print(result[i]+",");
+        }
+    }
+    public static void Prob84_add_last3(){
+        String str1 = "python";
+        String subStr = str1.substring(str1.length()-3);
+        String result = subStr + str1 + subStr  ;
+        System.out.print(result);
+    }
+    public static void Prob85_String_Starts_with_Word(){
+        String mainString = "Hello how are you?";
+        String word = "Hello";
+        if (mainString.indexOf(word) == 0){
+            System.out.println("True");
+        }else{
+            System.out.println("False");
+        }
+    }
+    public static void Prob86_Collatz_Conjecture_Simulation(){
+        int n = 78;
+        while(n!=1){
+            System.out.print(n+",");
+            if( n%2 == 0 ){
+                n/=2;
+            }else{
+                n = (n*3) + 1;
+            }
+        }
+    }
+    public static void Prob87_Digit_Sum_in_Words(){
+        int num = 169;
+        int sum = 0 ; 
+        while(num != 0){
+            sum += num%10;  
+            num /= 10 ;
+        }
+        String[] words = {
+            "zero", "one", "two", "three", "four",
+            "five", "six", "seven", "eight", "nine"
+        };
+        // sum 61; one six
+        String resultArray = ""; 
+        while(sum != 0){
+            resultArray = words[sum%10] + resultArray;
+            sum /= 10 ;
+        } 
+        System.out.print(resultArray);
+    }
+    public static void Prob88_System_Environment(){
+        System.out.println("\nCurrent system environment:");
+        System.out.println(System.getenv());
+        System.out.println("\n\nCurrent system properties:");
+        System.out.println(System.getProperties());
+    }
+    public static void Prob89_Security_Manager(){
+        // Print a message indicating the display of the system security interface
+        System.out.println("System security interface:");
+        // Retrieve and print the system security manager using System.getSecurityManager()
+        //System.out.println(System.getSecurityManager());
+    }
+    public static void Prob90_Environment_Variables(){
+        // Display the value of the specified environment variable "PATH"
+        System.out.println("\nEnvironment variable PATH: ");
+        System.out.println(System.getenv("PATH"));
+        // Display the value of the specified environment variable "TEMP"
+        System.out.println("\nEnvironment variable TEMP: ");
+        System.out.println(System.getenv("TEMP"));
+        // Display the value of the specified environment variable "USERNAME"
+        System.out.println("\nEnvironment variable USERNAME: ");
+        System.out.println(System.getenv("USERNAME"));
+
+    }
+    public static void Prob91_time_in_NS(){
+        long startTime = System.nanoTime();  
+        // Sample program: Display the first 10 natural numbers.
+        int i;
+        System.out.println("The first 10 natural numbers are:\n");
+        for (i = 1; i <= 10; i++) {      
+            System.out.println(i);
+        }
+        // Calculate the elapsed time in nanoseconds.
+        long estimatedTime = System.nanoTime() - startTime; 
+        System.out.println("Estimated time (in nanoseconds) to get the first 10 natural numbers: " + estimatedTime);
+    }
+    public static void Prob92_even_odd_array(){
+        int arr1[] = {10,22,25,26,35,36};
+        int evenC = 0 ;
+        int oddC = 0 ;
+        int bitMask = 1;
+        for (int i = 0 ; i< arr1.length ; i++){
+            if ((arr1[i] & bitMask) == 0){
+                evenC+=1;
+            }else{
+                oddC+=1;
+            }
+        }
+        System.out.println("Even count : " + evenC);
+        System.out.println("Odd count : " + oddC);
+    }
+    public static void Prob93_Check_Adjacent(){
+        int arr[] = {10,10,20,20,15,18};
+        boolean twentyB = false;
+        boolean tenB = false;
+
+        for (int i = 0 ; i <= arr.length-2 ; i++){
+            if((arr[i]==20 ) && (arr[i+1]==20)){
+                twentyB = true;
+                 
+            }else if((arr[i]==10 ) && (arr[i+1]==10)){
+                tenB = true;  
+            }
+        }
+        if(twentyB && tenB){
+            System.out.println("false");
+        }else{
+            System.out.println("true");
+        }
+    }
+    public static void Prob94_Rearrange_Odd_Even() {
+        int arr1[] = {10, 22, 25, 26, 35, 36};
+        for (int i = 0; i < arr1.length; i++) {
+            // If current element is odd
+            if (arr1[i] % 2 != 0) {
+                int n = i;
+                // Move backward while previous elements are even
+                while (n > 0 && arr1[n - 1] % 2 == 0) {
+                    // Swap arr1[n] and arr1[n-1]
+                    int temp = arr1[n];
+                    arr1[n] = arr1[n - 1];
+                    arr1[n - 1] = temp;
+                    n--;   // Move left
+                }
+            }
+        }
+
+        // Print result
+        for (int num : arr1) {
+            System.out.print(num + " ");
+        }
+    }
+    public static void  Prob95_Create_String_Array(){
+        int n = 50;
+        String arr[] = new String[n];
+        for (int i = 0 ; i < arr.length ; i++){
+            arr[i] = (""+i);
+            System.out.print(arr[i]+ " " );
+        }
+    }
+    public static void Prob96_10_before_20(){
+        int arr[] = {25,82,10,56,96,20};
+        int start = 0;
+        for(int i = 0 ; i< arr.length ; i++){
+            if (arr[i] == 10){
+                start = i+1;
+                break;
+            }
+        }
+        for(int i = start ; i< arr.length ; i++){
+            if (arr[i] == 20){
+                System.out.println("There  is a 10 in an array of integers with a 20 somewhere later on.");
+                return;
+            }
+        }
+        System.out.println("There  is not a 10 in an array of integers with a 20 somewhere later on.");
+    }
+    public static void Prob97_Number_Adjacent_Separated_One(){
+        int arr[] = {25,82,10,56,20};
+        for(int i = 0 ; i< arr.length-2 ; i++){
+            if (arr[i] == arr[i+1] || arr[i] == arr[i+2]){
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob98_20_Appears_Thrice_Non_Consecutively(){
+        int arr[] = {25,20,10,56,20,18,20};
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 20) {
+                if (i < arr.length - 1 && arr[i + 1] == 20) {
+                     System.out.println("false");
+                     return;
+                }
+                count++;
+            }
+        }
+        if(count == 3){
+            System.out.println("True");
+        }else{
+            System.out.println("false");
+        }
+    }
+    public static void Prob99_Specified_Number_Adjacent_Pairs(){
+        int number = 20;
+        int arr[] = {25,20,10,56,20,20};
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] == number && arr[i+1] == number) {
+                System.out.println("true");
+                return;
+            }
+        }
+        System.out.println("false");
+    }
+    public static void Prob100_Count_Elements_Differ_1(){
+        int arr1[] = {25,26,23,29,25};
+        int arr2[] = {95,25,33,30,95};
+        int count = 0;
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (Math.abs(arr1[i] - arr2[i]) <= 1 ){
+                count++;
+            }
+        }
+        System.out.print("count : " + count);
+    }
+    public static void Prob101_Check_10_Exceeds_20_in_Array(){
+        int arr1[] = {25,26,23,29,25,20};
+        int countTen = 0;
+        int countTwenty = 0;
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (arr1[i]== 10 ){
+                countTen ++;
+            } else if(arr1[i]== 20){
+                countTwenty ++;
+            }
+        }
+        if(countTen > countTwenty){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+    }
+        public static void Prob102_contain_10_30(){
+        int arr1[] = {25,26,23,29,25,30};
+        for(int i = 0 ; i < arr1.length ; i++){
+            if (arr1[i]== 10 || arr1[i]== 30 ){
+                System.out.println("true");
+                return;
+            } 
+        }
+        System.out.println("false");
+
+    }
+    public static void Prob103_Array_After_Last_10() {
+        int arr1[] = {25, 26, 10, 29, 25, 30};
+
+        // Find last occurrence of 10
+        int lastIndex = -1;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] == 10) {
+                lastIndex = i;
+            }
+        }
+        // If 10 not found or it's the last element
+        if (lastIndex == -1 || lastIndex == arr1.length - 1) {
+            System.out.println("No elements after last 10");
+            return;
+        }
+        // Create new array of correct size
+        int newLength = arr1.length - lastIndex - 1;
+        int newArr[] = new int[newLength];
+        // Copy elements after last 10
+        for (int i = 0; i < newLength; i++) {
+            newArr[i] = arr1[lastIndex + 1 + i];
+        }
+        // Print result
+        System.out.println(Arrays.toString(newArr));
+    }
+    public static void Prob104_Array_before_Last_10() {
+        int arr1[] = {25, 26, 10, 29, 25, 30};
+        // Find last occurrence of 10
+        int lastIndex = -1;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] == 10) {
+                lastIndex = i;
+            }
+        }
+        // If 10 not found
+        if (lastIndex == -1) {
+            System.out.println("10 not found in array");
+            return;
+        }
+        // Create new array with elements before last 10
+        int newArr[] = new int[lastIndex];
+        for (int i = 0; i < lastIndex; i++) {
+            newArr[i] = arr1[i];
+        }
+        System.out.println(Arrays.toString(newArr));
+    }
+    public static void Prob105_Group_Match_Start_and_End(){
+        
+    }
 
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -440,6 +1187,67 @@ public class java_basics1 {
         //Prob42_Input_and_Display_password();
         //Prob43_Twinkle_Poem_Formatter();
         //Prob44_Compute_n_nn_nnn();
-        //
+        //Prob45_file_size_finder();
+        //Prob46_system_time();
+        //Prob47_formatted_system_time();
+        //Prob48_Print_Odd_Numbers();
+        //Prob49_check_even_odd();
+        //Prob50_div_by_3_5_both();
+        //Prob51_String_to_int();
+        //Prob52_Sum_Equals_Third_Integer();
+        //Prob53_Number_Comparison_Logic();
+        //Prob54_same_rightmost_dgt();
+        //Prob55_sec_to_time();
+        //Prob56_Count_Divisibles_in_Range();
+        //Prob57_factor_of_int();
+        //Prob58_Capitalize_Each_Word();
+        //Prob59_Convert_to_Lowercase();
+        //Prob60_Find_Penultimate_Word();
+        //Prob61_Reverse_Word();
+        //Prob62_Check_Subtraction_Difference();
+        //Prob63_Largest_Smallest_Value();
+        //Prob64_Common_digit();
+        //Prob65_Custom_mod();
+        //Prob66_Sum_of_100_Prime();
+        //Prob67_Insert_Word_in_Middle();
+        //Prob68_Repeat_Last_3_Characters();
+        //Prob69_Extract_First_Half();
+        //Prob70_Short_Long_Short_String();
+        //Prob71_Remove_First_Char_Concatenate();
+        //Prob72_First_3_char();
+        //Prob73_First_Last_Combo();
+        //Prob74_10_as_First_Last();
+        //Prob75_First_Last_same();
+        //Prob76_First_Last_array();
+        //Prob77_newArray_First_Last_array();
+        //Prob78_a4or7();
+        //Prob79_rotated_array();
+        //Prob80_largest_first_last();
+        //Prob81_swap_first_last();
+        //Prob82_largest_first_last_middle();
+        //Prob83_Multiply_Array_Elements();
+        //Prob84_add_last3();
+        //Prob85_String_Starts_with_Word();
+        //Prob86_Collatz_Conjecture_Simulation();
+        //Prob87_Digit_Sum_in_Words();
+        //Prob88_System_Environment();
+        //Prob89_Security_Manager();
+        //Prob90_Environment_Variables();
+        //Prob91_time_in_NS();
+        //Prob92_even_odd_array();
+        //Prob93_Check_Adjacent();
+        //Prob94_Rearrange_Odd_Even();
+        //Prob95_Create_String_Array();
+        //Prob96_10_before_20();
+        //Prob97_Number_Adjacent_Separated_One();
+        //Prob98_20_Appears_Thrice_Non_Consecutively();
+        //Prob99_Specified_Number_Adjacent_Pairs();
+        //Prob100_Count_Elements_Differ_1();
+        //Prob101_Check_10_Exceeds_20_in_Array();
+        //Prob102_contain_10_30();
+        //Prob103_Array_After_Last_10();
+        //Prob104_Array_before_Last_10();
+        Prob105_Group_Match_Start_and_End();
+
     }
 }
