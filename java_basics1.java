@@ -1,9 +1,9 @@
+//Prob 46
+//Prob 46
 import java.util.*;
 import java.nio.charset.Charset;//Prob 40
 import java.io.Console; //Prob 42
 import java.io.File; //Prob 45
-import java.util.Calendar;//Prob 46
-import java.util.TimeZone;//Prob 46
 import java.text.SimpleDateFormat;//Prob 46
 
 public class java_basics1 {
@@ -1139,9 +1139,78 @@ public class java_basics1 {
         System.out.println(Arrays.toString(newArr));
     }
     public static void Prob105_Group_Match_Start_and_End(){
-        
+        int arr1[] = {25, 26, 10 };
+        int grp = 3;
+        if ((grp*2) > arr1.length) {
+            System.out.println("The Array size is smaller than required size");
+            return;
+        }else{
+            for (int i=0 ; i < grp; i++){
+                if(arr1[i] != arr1[(arr1.length-grp)+i]){
+                    System.out.println( "Elements are not same " );
+                    return;
+                }
+            }
+        }
+        System.out.println("Elements are same ");    
+    }
+    public static void Prob106_Left_Shift_Array(){
+        int arr1[] = {15,64,65,66};
+        int temp = arr1[0];
+        for(int i =1; i<arr1.length; i++ ){
+            arr1[i-1]=arr1[i];
+        }
+        arr1[arr1.length-1]=temp;
+        for(int i = 0; i<arr1.length; i++ ){
+            System.out.print(arr1[i] + " ");
+        }
+    }
+    public static boolean Prob107_Three_Increasing_Adjacent_Numbers(){
+        int arr1[] = {15,69,67,66,67};
+        for ( int i =0; i<arr1.length-2; i++){
+            if(arr1[i]+1 == arr1[i+1] && arr1[i+1] +1 == arr1[i+2] ){
+                
+                return  true ;
+            }
+        }
+        return false;
+    }
+    public static void Prob108_Sum_Digits_to_Single_Digit(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number");
+        int num = sc.nextInt();
+        int sum = 1 + (num - 1) % 9;
+        System.out.println(" THE last single digit Sum is  : "+sum);   
+        sc.close();
     }
 
+    public static void Prob109_Staircase_Coins(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number");
+        int coin = sc.nextInt();
+        int ans = 0;
+        int i = 1;
+
+            while (coin >= i) {
+                for (int j = 1; j <= i; j++) {
+                    System.out.print("@");
+                }
+                System.out.println();
+
+                coin -= i;   // subtract full row
+                ans = i;     // store last full row number
+                i++;
+            }
+
+            System.out.println("ans = " + ans);
+            System.out.println("coin left = " + coin);
+            sc.close();
+            
+    }
+    public static void Prob110_Power_4(){
+        int n = 60;
+        System.out.println(((n > 0) && ((n & (n - 1)) == 0) && (n % 3 == 1) ) );
+    }
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
         //Prob02_sum_of_two()
@@ -1247,7 +1316,12 @@ public class java_basics1 {
         //Prob102_contain_10_30();
         //Prob103_Array_After_Last_10();
         //Prob104_Array_before_Last_10();
-        Prob105_Group_Match_Start_and_End();
+        //Prob105_Group_Match_Start_and_End();
+        //Prob106_Left_Shift_Array();
+        //Prob107_Three_Increasing_Adjacent_Numbers(); 
+        //Prob108_Sum_Digits_to_Single_Digit();
+        //Prob109_Staircase_Coins();
+        Prob110_Power_4();
 
     }
 }
