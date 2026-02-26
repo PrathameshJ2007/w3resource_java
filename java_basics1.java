@@ -1229,13 +1229,116 @@ public class java_basics1 {
 
         System.out.print("Sum: " + x); 
         System.out.print("\n"); 
+        in.close();
     }
     public static void Prob112_Trailing_Zeros_in_Factorial() {
-        
-    }
+        Integer number = 20;
+        long factorial = 1; 
 
-    
-    
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            for (int i = 1; i <= number; i++) {
+             
+                factorial *= i;
+            }
+            
+            
+        }
+        System.out.println("Factorial of " + number + " is: " + factorial);
+        int count = 0 ;
+        while(factorial != 0){
+            if(factorial%10==0){
+                count+=1;
+                factorial /= 10 ;
+            }else{
+                break;
+            }
+            
+        }
+        System.out.print("Count : "+ count);
+
+    }
+    public static void Prob113_Merge_Two_Sorted_Arrays(){
+        int[] array1 = {1, 2,3, 5, 7};
+        int[] array2 = {2, 4, 6, 8};
+        int[] result = new int[array1.length + array2.length];
+        int curr1 = 0;
+        int curr2 = 0;
+        // Merge using for loop
+        for (int k = 0; k < result.length; k++) {
+            if (curr1 < array1.length && curr2 < array2.length) {
+                if (array1[curr1] < array2[curr2]) {
+                    result[k] = array1[curr1];
+                    curr1++;
+                } else {
+                    result[k] = array2[curr2];
+                    curr2++;
+                }
+            } else if (curr1 < array1.length) {
+                result[k] = array1[curr1];
+                curr1++;
+            } else {
+                result[k] = array2[curr2];
+                curr2++;
+            }
+        }
+        // Print result
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
+        }
+    }
+    public static void Prob114_Rotate_String_by_Offset(){
+        String xyz = "TusharBorse";
+        int offset = 15; 
+        if( xyz.length() != offset){
+            System.out.println("Off set Length is Greater than The String Length");
+        }else{
+            String a = xyz.substring(0 , (offset -1 ));
+            String b = xyz.substring((offset-1) , xyz.length() );
+            String result = b + a;
+            System.out.println(result);
+        }
+    }
+    public static void Prob115_Check_Palindrome_Number(){
+        int num = 124; 
+        int originalNum = num; 
+        int reversedNum = 0;
+        int remainder;
+
+        
+        while (num != 0) {
+            remainder = num % 10; 
+            reversedNum = reversedNum * 10 + remainder; 
+            num /= 10; 
+        }
+
+        if (originalNum == reversedNum) {
+            System.out.println(originalNum + " is a Palindrome number.");
+        } else {
+            System.out.println(originalNum + " is not a Palindrome number.");
+        }
+    }    
+    public static void Prob116_FizzBuzz_1_100(){
+        for(int i = 1 ; i<=100 ; i++){
+            if(i%3==0 && i%5==0 ){
+                System.out.print(" fizz_buzz ");
+            }else if(i%3==0 && i%5!=0){
+                System.out.print(" fizz ");
+            }else if(i%3!=0 && i%5==0){
+                System.out.print(" buzz ");
+            }else{
+                System.out.print(i);
+            }
+        }
+    }
+    public static void Prob117_Square_Root_Calculation(){
+    int sqroot= 52;
+    System.out.println(Math.sqrt(sqroot));  
+    }
+    public static void  Prob118_First_Occurrence_in_String(){
+
+    }
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
         //Prob02_sum_of_two()
@@ -1349,6 +1452,11 @@ public class java_basics1 {
         //Prob110_Power_4();
         //Prob111_add_withot_sum();
         //Prob112_Trailing_Zeros_in_Factorial();
-
+        //Prob113_Merge_Two_Sorted_Arrays();
+        //Prob114_Rotate_String_by_Offset();
+        //Prob115_Check_Palindrome_Number();
+        //Prob116_FizzBuzz_1_100();
+        //Prob117_Square_Root_Calculation();
+        Prob118_First_Occurrence_in_String();
     }
 }
