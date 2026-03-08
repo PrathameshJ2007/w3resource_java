@@ -1337,6 +1337,128 @@ public class java_basics1 {
     System.out.println(Math.sqrt(sqroot));  
     }
     public static void  Prob118_First_Occurrence_in_String(){
+        String s = "Welcome to geeksforgeeks";
+        int index = s.indexOf("geeks");
+        System.out.println("index of string : " + index);
+    }
+    public static void  Prob119_First_Occurrence_in_Array(){
+        char array[] = {'a','b','c','d'};
+        int target = 'd';
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) {
+                System.out.println("index of array : " + i);
+                return ; 
+            }
+ 
+        }
+        System.out.println("index of array :  not found") ;
+    }
+    public static void Prob120_search_value_matrix(){
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        int target = 2;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++){
+                if (matrix[i][j] == target) {
+                System.out.println("index of 2D array : " + i + ',' +j);
+                return ; 
+                }
+            }
+        }
+        System.out.println("index of 2D array :  not found") ;
+        
+    }
+    public static void Prob121_max_subarray_sum(){
+        int array[] = {1,2,3,2,-1,-4,5,-7};
+        int curSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0 ; i<array.length ; i++){
+            curSum += array[i];
+            if (curSum < 0 ){
+                curSum = 0 ;
+            }
+            maxSum = Math.max(curSum , maxSum);
+        }
+        System.out.println(maxSum);
+    }
+    public static void Prob122_min_subarray_sum(){
+        int array[] = {1,2,3,2,-1,-4,5,-7};
+        int curSum = 0;
+        int minSum = Integer.MAX_VALUE;
+        for (int i = 0 ; i<array.length ; i++){
+            curSum += array[i];
+            if (curSum > 0) {
+            curSum = 0;}
+            minSum = Math.min(curSum , minSum);
+            
+        }
+        
+        System.out.println("Minsum : "+minSum);
+    }
+    public static void Prob124_Insert_Index_in_Sorted_Array(){
+        int arr[] = {1, 2, 4, 5, 6};
+        int target = 7 ; 
+        for (int i = 0 ; i<arr.length ; i++){
+            if( arr[i] == target){
+                System.out.println("array found at index : " + (i));
+                return;
+            } else if ( arr[i] < target){
+                i++;
+            }else{
+                System.out.println("array will be inserted at index : " + (i-1));
+                return ; 
+            }
+            
+        } 
+        System.out.println("array will be inserted at index : " + arr.length);
+    }
+    public static void Prob128_median_unsorted_array(){
+
+    }
+    public static void Prob129_Single_Occurrence_Number(){
+        int[] nums = {10, 20, 10, 20, 30, 40, 40, 30, 50};
+        
+        // Start with 0 because x ^ 0 = x
+        int result = 0;
+        
+        // Loop through the array once
+        for (int i = 0; i < nums.length; i++) {
+            result = result ^ nums[i];
+        }
+        
+        System.out.println("The number that appears only once is: " + result);
+    }
+    public static void Prob130_sorted_remove_duplicate(){
+        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7};
+        System.out.println("Original array length: " + nums.length);
+
+        // Standard in-place removal logic for sorted arrays
+        int newLength = (nums.length == 0) ? 0 : 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[newLength++] = nums[i];
+            }
+        }
+
+        System.out.println("After removing duplicates, the new length is: " + newLength);
+    }
+    public static void Prob131_sorted_remove_duplicate_twice(){
+        
+        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7};
+        System.out.println("Original array length: " + nums.length);
+
+        // Logic: Allow the element if it's different from the one two spots before it
+        int i = 0;
+        for (int n : nums) {
+            if (i < 2 || n != nums[i - 2]) {
+                nums[i++] = n;
+            }
+        }
+
+        System.out.println("After removing duplicates, the new length is: " + i);
 
     }
     public static void main(String arg[]){
@@ -1457,6 +1579,16 @@ public class java_basics1 {
         //Prob115_Check_Palindrome_Number();
         //Prob116_FizzBuzz_1_100();
         //Prob117_Square_Root_Calculation();
-        Prob118_First_Occurrence_in_String();
+        //Prob118_First_Occurrence_in_String();
+        //Prob119_First_Occurrence_in_Array();
+        //Prob120_search_value_matrix();
+        //Prob121_max_subarray_sum();
+        //Prob122_min_subarray_sum();
+        //Prob124_Insert_Index_in_Sorted_Array();
+        //Prob128_median_unsorted_array();
+        //Prob129_Single_Occurrence_Number();
+        //Prob130_sorted_remove_duplicate();
+        Prob131_sorted_remove_duplicate_twice();
+
     }
 }
