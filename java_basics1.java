@@ -1,5 +1,3 @@
-//Prob 46
-//Prob 46
 import java.util.*;
 import java.nio.charset.Charset;//Prob 40
 import java.io.Console; //Prob 42
@@ -1459,7 +1457,38 @@ public class java_basics1 {
         }
 
         System.out.println("After removing duplicates, the new length is: " + i);
+    }
+    public static void Prob133_minimum_Path_Sum(){
+       int[][] grid = {
+            {7, 4, 2},
+            {0, 5, 6},
+            {3, 1, 2}
+        };
 
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int[][] dp = new int[m][n];
+
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+
+                if(i == 0 && j == 0) {
+                    dp[i][j] = grid[i][j];
+                }
+                else if(i == 0) {
+                    dp[i][j] = dp[i][j-1] + grid[i][j];
+                }
+                else if(j == 0) {
+                    dp[i][j] = dp[i-1][j] + grid[i][j];
+                }
+                else {
+                    dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
+                }
+            }
+        }
+
+        System.out.println("Minimum Path Sum = " + dp[m-1][n-1]);
     }
     public static void main(String arg[]){
         //Prob01_Hello_and_Name_Printer()
@@ -1588,7 +1617,8 @@ public class java_basics1 {
         //Prob128_median_unsorted_array();
         //Prob129_Single_Occurrence_Number();
         //Prob130_sorted_remove_duplicate();
-        Prob131_sorted_remove_duplicate_twice();
+        //Prob131_sorted_remove_duplicate_twice();
+        Prob133_minimum_Path_Sum();
 
     }
 }
