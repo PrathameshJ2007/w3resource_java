@@ -573,6 +573,7 @@ public class java_basics1 {
         for(int i = 0 ; i<strArr.length ; i++ ){
             System.out.print(strArr[i]);
         }
+        sc.close();
         }
         public static void Prob60_Find_Penultimate_Word(){
             String str = "The quick brown fox jumps over the lazy dog.";
@@ -594,6 +595,7 @@ public class java_basics1 {
             for (int i = start + 1 ;  i < end; i++){
                 System.out.print(str.charAt(i));
             }
+            
         }
         public static void Prob61_Reverse_Word(){
             String word = "tushar";
@@ -602,6 +604,7 @@ public class java_basics1 {
                 result += word.charAt(i);
             }
             System.out.println(result);
+            
         }
         public static void Prob62_Check_Subtraction_Difference(){
         Scanner sc = new Scanner(System.in);
