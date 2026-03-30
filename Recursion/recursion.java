@@ -13,7 +13,7 @@ public class recursion{
         if(n==0){
             return 0;
         }
-        return n + prob2_sumOneToN(int n -1 ) ;
+        return n + prob2_sumOneToN(int n -1 );
     }
     public static int prob3_fabonacci(){
         //Write a Java recursive method to calculate the nth Fibonacci number.
