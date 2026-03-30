@@ -18,8 +18,10 @@ public class recursion{
     public static int prob3_fabonacci(){
         //Write a Java recursive method to calculate the nth Fibonacci number.
     }
-    public static int prob5_exponential(){
+    //Recursive String Palindrome Check
+    public static int prob5_exponential(int n ,int m ){
         //Write a Java recursive method to calculate the exponentiation of a number (base) raised to a power (exponent).
+        return 
     }
 
     public static void main (String args[]){
